@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ZentroApp.Models.Tipo_Usuario>
+@{
+    ViewBag.Title = "Listado de Tipos de Usuario";
+}
+
+<h2>Tipos de Usuario</h2>
+
+<p>
+    <a href="@Url.Action("Agregar")" class="btn btn-primary">Agregar nuevo</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Descripcion</td>
+                <td>
+                    <a href="@Url.Action("Detalle", new { id = item.Id_tipousuario })" class="btn btn-info btn-sm">Ver</a>
+                    <a href="@Url.Action("Editar", new { id = item.Id_tipousuario })" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="@Url.Action("Eliminar", new { id = item.Id_tipousuario })" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

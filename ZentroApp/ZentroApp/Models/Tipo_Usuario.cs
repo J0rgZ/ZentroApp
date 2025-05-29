@@ -116,25 +116,5 @@ namespace ZentroApp.Models
                 throw;
             }
         }
-
-        // Buscar tipo de usuario por nombre o descripción
-        public List<Tipo_Usuario> Buscar(string criterio)
-        {
-            var tipos = new List<Tipo_Usuario>();
-            try
-            {
-                using (var db = new ModeloGestion())
-                {
-                    tipos = db.Tipo_Usuario
-                              .Where(x => x.Nombre.Contains(criterio) || x.Descripcion.Contains(criterio))
-                              .ToList();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return tipos;
-        }
     }
 }

@@ -152,19 +152,7 @@ namespace ZentroApp.Models
             }
         }
 
-        // Autenticar por correo y contraseña
-        public bool Autenticar()
-        {
-            try
-            {
-                return db.Usuario.Any(x => x.Correo == this.Correo && x.Password == this.Password);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
+        
         // Método mejorado para obtener usuario por credenciales
         public Usuario ObtenerUsuarioPorCredenciales(string username, string password)
         {

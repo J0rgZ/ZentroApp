@@ -148,34 +148,5 @@ namespace ZentroApp.Models
                 throw;
             }
         }
-
-        // Buscar solicitudes de cambio por objetivo, estado, prioridad o usuario
-        public List<Solicitud_Cambios> Buscar(string criterio)
-        {
-            var resultados = new List<Solicitud_Cambios>();
-            try
-            {
-                using (var db = new ModeloGestion())
-                {
-                    resultados = db.Solicitud_Cambios
-                        .Include("Elemento_Configuracion")
-                        .Include("Proyecto")
-                        .Include("Solicitud")
-                        .Include("Usuario")
-                        .Include("Usuario1")
-                        .Where(x => x.Objetivo.Contains(criterio)
-                                 || x.Estado.Contains(criterio)
-                                 || x.Prioridad.Contains(criterio)
-                                 || x.Usuario.Nombre.Contains(criterio)
-                                 || x.Usuario.Apellido.Contains(criterio))
-                        .ToList();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return resultados;
-        }
     }
 }

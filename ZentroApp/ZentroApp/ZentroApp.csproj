@@ -162,6 +162,11 @@
     <Content Include="Views\Usuario\Crear.cshtml" />
     <Content Include="Views\Usuario\Editar.cshtml" />
     <Content Include="Views\Usuario\Eliminar.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Index.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Detalle.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Agregar.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Editar.cshtml" />
+    <Content Include="Views\Tipo_Usuario\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,7 +186,6 @@
     <Folder Include="Views\Rol\" />
     <Folder Include="Views\Solicitud\" />
     <Folder Include="Views\Solicitud_Cambios\" />
-    <Folder Include="Views\Tipo_Usuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
