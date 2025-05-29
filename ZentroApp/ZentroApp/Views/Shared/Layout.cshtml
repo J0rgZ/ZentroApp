@@ -1,0 +1,635 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Sistema de Gestión de la Configuración de Software">
+    <meta name="keywords" content="ZentroApp, Gestión de la Configuración, Software">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <title>ZentroApp</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <link href="~/Source/css/layout.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Overlay for Mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-content">
+                <a class="sidebar-brand" href="#">
+                    <img src="~/Source/img/avatars/software-1.png" alt="ZentroApp Logo" />
+                    <span class="brand-text">ZentroApp</span>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">Menú Principal</li>
+
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="~/Home/Index">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#miembros" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Miembros</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul id="miembros" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Miembro_Proyecto/Agregar">
+                                    <i class="bi bi-person-plus"></i>
+                                    <span>Agregar Miembros</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Miembro_Proyecto/Index">
+                                    <i class="bi bi-list-ul"></i>
+                                    <span>Listar Miembros</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Miembro_Elemento/Agregar">
+                                    <i class="bi bi-person-gear"></i>
+                                    <span>Miembros Elemento</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Miembro_Elemento/Index">
+                                    <i class="bi bi-list-check"></i>
+                                    <span>Lista Miembros Elemento</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#usuarios" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-person-badge-fill"></i>
+                            <span>Usuarios</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul id="usuarios" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Usuario/Agregar">
+                                    <i class="bi bi-person-plus-fill"></i>
+                                    <span>Registrar Usuario</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Usuario/Index">
+                                    <i class="bi bi-people"></i>
+                                    <span>Listar Usuarios</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Tipo_Usuario/Agregar">
+                                    <i class="bi bi-tags-fill"></i>
+                                    <span>Tipo Usuario</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Tipo_Usuario/Index">
+                                    <i class="bi bi-list-stars"></i>
+                                    <span>Lista Tipos</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#proyectos" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-folder-fill"></i>
+                            <span>Proyectos</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul id="proyectos" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Proyecto/Agregar">
+                                    <i class="bi bi-folder-plus"></i>
+                                    <span>Nuevo Proyecto</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Proyecto/Index">
+                                    <i class="bi bi-folder2-open"></i>
+                                    <span>Mis Proyectos</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Rol/Agregar">
+                                    <i class="bi bi-shield-plus"></i>
+                                    <span>Crear Roles</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Rol/Index">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Gestionar Roles</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Proyecto/Estado">
+                                    <i class="bi bi-graph-up"></i>
+                                    <span>Estado Proyectos</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Cronograma/Index">
+                                    <i class="bi bi-calendar3"></i>
+                                    <span>Cronogramas</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#cambios" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-arrow-repeat"></i>
+                            <span>Control de Cambios</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul id="cambios" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="#">
+                                    <i class="bi bi-plus-circle"></i>
+                                    <span>Nueva Solicitud</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="#">
+                                    <i class="bi bi-list-task"></i>
+                                    <span>Solicitudes</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="#">
+                                    <i class="bi bi-pencil-square"></i>
+                                    <span>Registrar Cambios</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="#">
+                                    <i class="bi bi-clock-history"></i>
+                                    <span>Historial</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#metodologia" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-diagram-3-fill"></i>
+                            <span>Metodología</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul id="metodologia" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Metodologia/Agregar">
+                                    <i class="bi bi-gear-fill"></i>
+                                    <span>Nueva Metodología</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Metodologia/Index">
+                                    <i class="bi bi-list-columns"></i>
+                                    <span>Metodologías</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Fase/AgregarEditar">
+                                    <i class="bi bi-layers-fill"></i>
+                                    <span>Gestionar Fases</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Fase/Index">
+                                    <i class="bi bi-stack"></i>
+                                    <span>Lista de Fases</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Elemento_Configuracion/Agregar">
+                                    <i class="bi bi-puzzle-fill"></i>
+                                    <span>Elementos Config</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="~/Elemento_Configuracion/Index">
+                                    <i class="bi bi-collection"></i>
+                                    <span>Lista Elementos</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main" id="main">
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-expand navbar-light">
+                <button class="sidebar-toggle" id="sidebarToggle" type="button">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="d-none d-lg-inline-block">
+                    <h1 class="system-title">Gestión de Configuración de Software</h1>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Notifications -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle" href="#" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell-fill"></i>
+                                <span class="indicator">0</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                                <div class="dropdown-menu-header">
+                                    <div class="fw-semibold">Notificaciones</div>
+                                </div>
+                                <div class="p-4 text-center text-muted">
+                                    <i class="bi bi-chat-slash fs-3 mb-2 d-block"></i>
+                                    <p class="mb-0">No tienes mensajes nuevos</p>
+                                </div>
+                                <div class="dropdown-menu-footer">
+                                    <a href="#" class="text-muted fw-medium text-decoration-none">Ver todos los mensajes</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- User Profile -->
+                        <li class="nav-item dropdown user-dropdown">
+                            <a class="dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="~/Source/img/avatars/perfil.png" class="avatar" alt="Usuario" />
+                                <span class="d-none d-sm-inline-block fw-semibold">Administrador</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <div class="dropdown-menu-header">
+                                    <div class="fw-semibold">Mi Cuenta</div>
+                                    <div class="text-muted small">administrador@zentroapp.com</div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person me-2"></i> Mi Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-gear me-2"></i> Configuración
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-question-circle me-2"></i> Ayuda
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="/Login/Index">
+                                    <i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="content fade-in">
+                <div class="container-fluid p-0">
+                    @RenderBody()
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p class="mb-0">
+                                <strong>ZentroApp</strong> - Sistema de Gestión de Configuración &copy; @DateTime.Now.Year
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-md-end text-center">
+                            <span class="badge">Versión 2.0</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('main');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const body = document.body;
+
+            // Variables de estado
+            let isMobile = window.innerWidth < 992;
+            let sidebarCollapsed = false;
+
+            // Función para actualizar el estado responsive
+            function updateResponsiveState() {
+                const wasMobile = isMobile;
+                isMobile = window.innerWidth < 992;
+
+                if (wasMobile !== isMobile) {
+                    if (isMobile) {
+                        // Cambiar a móvil
+                        sidebar.classList.remove('collapsed');
+                        sidebar.classList.remove('show');
+                        main.classList.remove('expanded');
+                        sidebarOverlay.classList.remove('show');
+                        body.classList.remove('sidebar-open');
+                    } else {
+                        // Cambiar a escritorio
+                        sidebar.classList.remove('show');
+                        sidebarOverlay.classList.remove('show');
+                        body.classList.remove('sidebar-open');
+
+                        if (sidebarCollapsed) {
+                            sidebar.classList.add('collapsed');
+                            main.classList.add('expanded');
+                        }
+                    }
+                }
+            }
+
+            // Toggle del sidebar
+            sidebarToggle.addEventListener('click', function() {
+                if (isMobile) {
+                    // Comportamiento móvil
+                    const isOpen = sidebar.classList.contains('show');
+
+                    if (isOpen) {
+                        closeMobileSidebar();
+                    } else {
+                        openMobileSidebar();
+                    }
+                } else {
+                    // Comportamiento escritorio
+                    sidebarCollapsed = !sidebarCollapsed;
+
+                    if (sidebarCollapsed) {
+                        sidebar.classList.add('collapsed');
+                        main.classList.add('expanded');
+                    } else {
+                        sidebar.classList.remove('collapsed');
+                        main.classList.remove('expanded');
+                    }
+
+                    // Guardar estado en localStorage
+                    localStorage.setItem('sidebarCollapsed', sidebarCollapsed);
+                }
+            });
+
+            // Funciones para móvil
+            function openMobileSidebar() {
+                sidebar.classList.add('show');
+                sidebarOverlay.classList.add('show');
+                body.classList.add('sidebar-open');
+            }
+
+            function closeMobileSidebar() {
+                sidebar.classList.remove('show');
+                sidebarOverlay.classList.remove('show');
+                body.classList.remove('sidebar-open');
+            }
+
+            // Cerrar sidebar móvil al hacer click en overlay
+            sidebarOverlay.addEventListener('click', closeMobileSidebar);
+
+            // Manejar redimensionamiento de ventana
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateResponsiveState, 100);
+            });
+
+            // Restaurar estado del sidebar desde localStorage
+            if (!isMobile) {
+                const savedState = localStorage.getItem('sidebarCollapsed');
+                if (savedState === 'true') {
+                    sidebarCollapsed = true;
+                    sidebar.classList.add('collapsed');
+                    main.classList.add('expanded');
+                }
+            }
+
+            // Manejar dropdowns del sidebar
+            const dropdownToggles = document.querySelectorAll('.sidebar-link[data-bs-toggle="collapse"]');
+
+            dropdownToggles.forEach(function(toggle) {
+                const targetId = toggle.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+
+                if (target) {
+                    // Crear instancia de Bootstrap Collapse
+                    const bsCollapse = new bootstrap.Collapse(target, {
+                        toggle: false
+                    });
+
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        // Cerrar otros dropdowns
+                        dropdownToggles.forEach(function(otherToggle) {
+                            if (otherToggle !== toggle) {
+                                const otherTargetId = otherToggle.getAttribute('href').substring(1);
+                                const otherTarget = document.getElementById(otherTargetId);
+                                if (otherTarget && otherTarget.classList.contains('show')) {
+                                    const otherCollapse = bootstrap.Collapse.getInstance(otherTarget);
+                                    if (otherCollapse) {
+                                        otherCollapse.hide();
+                                    }
+                                    otherToggle.setAttribute('aria-expanded', 'false');
+                                }
+                            }
+                        });
+
+                        // Toggle del dropdown actual
+                        bsCollapse.toggle();
+
+                        // Actualizar aria-expanded
+                        const isExpanded = target.classList.contains('show') ||
+                                         target.classList.contains('collapsing');
+                        toggle.setAttribute('aria-expanded', !isExpanded);
+                    });
+
+                    // Eventos de Bootstrap Collapse
+                    target.addEventListener('shown.bs.collapse', function() {
+                        toggle.setAttribute('aria-expanded', 'true');
+                    });
+
+                    target.addEventListener('hidden.bs.collapse', function() {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+
+            // Marcar elemento activo en el menú
+            function setActiveMenuItem() {
+                const currentPath = window.location.pathname.toLowerCase();
+                const menuLinks = document.querySelectorAll('.sidebar-link:not([data-bs-toggle])');
+
+                // Remover clases activas
+                document.querySelectorAll('.sidebar-item.active').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Encontrar y marcar el elemento activo
+                let activeLink = null;
+                let maxMatch = 0;
+
+                menuLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && href !== '#') {
+                        const linkPath = href.replace('~', '').toLowerCase();
+                        if (currentPath.includes(linkPath) && linkPath.length > maxMatch) {
+                            maxMatch = linkPath.length;
+                            activeLink = link;
+                        }
+                    }
+                });
+
+                if (activeLink) {
+                    const activeItem = activeLink.closest('.sidebar-item');
+                    activeItem.classList.add('active');
+
+                    // Si está dentro de un dropdown, expandirlo
+                    const parentDropdown = activeLink.closest('.sidebar-dropdown');
+                    if (parentDropdown) {
+                        parentDropdown.classList.add('show');
+                        const parentToggle = document.querySelector(`[href="#${parentDropdown.id}"]`);
+                        if (parentToggle) {
+                            parentToggle.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                }
+            }
+
+            // Establecer elemento activo al cargar
+            setActiveMenuItem();
+
+            // Inicializar tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            const tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Mejorar la experiencia de usuario con efectos hover
+            const navIcons = document.querySelectorAll('.nav-icon');
+            navIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                });
+
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+
+            // Cerrar dropdown al hacer click fuera (móvil)
+            document.addEventListener('click', function(e) {
+                if (isMobile && sidebar.classList.contains('show')) {
+                    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                        closeMobileSidebar();
+                    }
+                }
+            });
+
+            // Prevenir scroll del body cuando el sidebar móvil está abierto
+            const style = document.createElement('style');
+            style.textContent = `
+                body.sidebar-open {
+                    overflow: hidden;
+                }
+
+                @@media (max-width: 991.98px) {
+                    body.sidebar-open {
+                        overflow: hidden;
+                        position: fixed;
+                        width: 100%;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Animación suave para elementos que aparecen
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observar elementos con clase fade-in
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Inicialización completa
+            updateResponsiveState();
+
+            console.log('ZentroApp Layout iniciado correctamente');
+        });
+
+        // Función global para actualizar indicadores de notificaciones
+        window.updateNotificationCount = function(count) {
+            const indicator = document.querySelector('#notificationsDropdown .indicator');
+            if (indicator) {
+                indicator.textContent = count;
+                indicator.style.display = count > 0 ? 'flex' : 'none';
+            }
+        };
+
+        // Función global para actualizar indicadores de mensajes
+        window.updateMessageCount = function(count) {
+            const indicator = document.querySelector('#messagesDropdown .indicator');
+            if (indicator) {
+                indicator.textContent = count;
+                indicator.style.display = count > 0 ? 'flex' : 'none';
+            }
+        };
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,171 @@
+﻿
+@model ZentroApp.Models.Usuario
+
+@{
+    ViewBag.Title = "Eliminar Usuario";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle"></i> Confirmar Eliminación
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-warning"></i>
+                        <strong>¡Atención!</strong> Esta acción no se puede deshacer. ¿Está seguro de que desea eliminar este usuario?
+                    </div>
+
+                    <div class="row">
+                        <!-- Información del Usuario a Eliminar -->
+                        <div class="col-12">
+                            <h5 class="border-bottom pb-2 mb-3">
+                                <i class="fas fa-user"></i> Información del Usuario
+                            </h5>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-hashtag"></i> ID de Usuario
+                                    </h6>
+                                    <p class="card-text h6">@Model.Id_usuario</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-user"></i> Username
+                                    </h6>
+                                    <p class="card-text h6">@Model.Username</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-id-card"></i> Nombre Completo
+                                    </h6>
+                                    <p class="card-text h6">@Model.Nombre @Model.Apellido</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-envelope"></i> Correo
+                                    </h6>
+                                    <p class="card-text h6">@Model.Correo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-user-tag"></i> Tipo de Usuario
+                                    </h6>
+                                    <p class="card-text h6">
+                                        @if (Model.Tipo_Usuario != null)
+                                        {
+                                            <span class="badge bg-info">@Model.Tipo_Usuario.Nombre</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Sin tipo asignado</span>
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-toggle-on"></i> Estado
+                                    </h6>
+                                    <p class="card-text h6">
+                                        @if (Model.Estado == "A")
+                                        {
+                                            <span class="badge bg-success">
+                                                <i class="fas fa-check-circle"></i> Activo
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                <i class="fas fa-times-circle"></i> Inactivo
+                                            </span>
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <i class="fas fa-calendar-plus"></i> Fecha de Creación
+                                    </h6>
+                                    <p class="card-text h6">@Model.Fecha_creacion.ToString("dd/MM/yyyy HH:mm")</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advertencia Final -->
+                        <div class="col-12 mb-4">
+                            <div class="alert alert-danger">
+                                <h5 class="alert-heading">
+                                    <i class="fas fa-skull-crossbones"></i> ¡Advertencia Final!
+                                </h5>
+                                <p class="mb-0">
+                                    Al eliminar este usuario se perderán todos los datos asociados incluyendo:
+                                </p>
+                                <ul class="mb-0 mt-2">
+                                    <li>Proyectos donde participa como miembro</li>
+                                    <li>Solicitudes creadas por el usuario</li>
+                                    <li>Solicitudes de cambios relacionadas</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Acciones -->
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between">
+                                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary btn-lg" })
+
+                                <div>
+                                    @Html.ActionLink("Ver Detalles", "Detalle", new { id = Model.Id_usuario }, new { @class = "btn btn-info btn-lg me-2" })
+
+                                    @using (Html.BeginForm("Eliminar", "Usuario", FormMethod.Post, new { @style = "display: inline;" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("id", Model.Id_usuario)
+                                        <button type="submit" class="btn btn-danger btn-lg" onclick="return confirm('¿Está absolutamente seguro de que desea eliminar este usuario? Esta acción no se puede deshacer.')">
+                                            <i class="fas fa-trash"></i> Sí, Eliminar Usuario
+                                        </button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,316 @@
+﻿/* Usuario.css - Estilos personalizados para gestión de usuarios */
+
+:root {
+    --primary-dark: #1a1a2e;
+    --secondary-dark: #16213e;
+    --accent-blue: #0f3460;
+    --accent-light: #533483;
+    --text-light: #e94560;
+    --bg-card: #0f1419;
+    --border-color: #2d3748;
+    --success-color: #48bb78;
+    --warning-color: #ed8936;
+    --danger-color: #f56565;
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cards principales */
+.user-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+    .user-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(233, 69, 96, 0.2);
+        border-color: var(--text-light);
+    }
+
+    .user-card .card-header {
+        background: linear-gradient(90deg, var(--accent-blue), var(--accent-light));
+        border-bottom: 1px solid var(--border-color);
+        border-radius: 15px 15px 0 0 !important;
+        color: white;
+        font-weight: 600;
+    }
+
+    .user-card .card-body {
+        color: #cbd5e0;
+    }
+
+/* Botones personalizados */
+.btn-user-primary {
+    background: linear-gradient(45deg, var(--text-light), var(--accent-light));
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+    .btn-user-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        color: white;
+    }
+
+.btn-user-secondary {
+    background: var(--accent-blue);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: #cbd5e0;
+    transition: all 0.3s ease;
+}
+
+    .btn-user-secondary:hover {
+        background: var(--accent-light);
+        color: white;
+        border-color: var(--text-light);
+    }
+
+.btn-user-danger {
+    background: var(--danger-color);
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+
+    .btn-user-danger:hover {
+        background: #e53e3e;
+        color: white;
+    }
+
+/* Header de página */
+.page-header {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.page-title {
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+/* Formularios */
+.form-user {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+    .form-user .form-control {
+        background: var(--secondary-dark);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        color: #cbd5e0;
+        padding: 12px 15px;
+    }
+
+        .form-user .form-control:focus {
+            background: var(--accent-blue);
+            border-color: var(--text-light);
+            color: white;
+            box-shadow: 0 0 0 0.2rem rgba(233, 69, 96, 0.25);
+        }
+
+    .form-user .form-label {
+        color: #e2e8f0;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+/* Estados de usuario */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-active {
+    background: rgba(72, 187, 120, 0.2);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.status-inactive {
+    background: rgba(245, 101, 101, 0.2);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+}
+
+/* Iconos */
+.user-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--text-light), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.action-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3px;
+    transition: all 0.3s ease;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .user-card {
+        margin-bottom: 15px;
+    }
+
+    .page-header {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .form-user {
+        padding: 20px;
+    }
+
+    .btn-user-primary,
+    .btn-user-secondary {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+        .action-buttons .btn {
+            width: 100%;
+        }
+}
+
+@media (max-width: 576px) {
+    .user-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+    .user-card:nth-child(even) {
+        animation-delay: 0.1s;
+    }
+
+    .user-card:nth-child(odd) {
+        animation-delay: 0.2s;
+    }
+
+/* Loading state */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 46, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--text-light);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.detail-item {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+    .detail-item:last-child {
+        border-bottom: none;
+    }
+
+.detail-value {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    color: #e2e8f0;
+}
+
+.text-purple {
+    color: #9f7aea !important;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+}

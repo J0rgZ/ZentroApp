@@ -1,0 +1,156 @@
+﻿@model ZentroApp.Models.Usuario
+
+@{
+    ViewBag.Title = "Crear Usuario";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">
+                        <i class="fas fa-user-plus"></i> Crear Nuevo Usuario
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Crear", "Usuario", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <!-- Username -->
+                            <div class="col-md-6 mb-3">
+                                <label for="Username" class="form-label">
+                                    <i class="fas fa-user"></i> Username <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @placeholder = "Ingrese el username", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                            </div>
+
+                            <!-- Tipo de Usuario -->
+                            <div class="col-md-6 mb-3">
+                                <label for="Id_tipousuario" class="form-label">
+                                    <i class="fas fa-user-tag"></i> Tipo de Usuario <span class="text-danger">*</span>
+                                </label>
+                                @Html.DropDownListFor(m => m.Id_tipousuario, ViewBag.Id_tipousuario as SelectList, "Seleccione un tipo", new { @class = "form-select", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Id_tipousuario, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Nombre -->
+                            <div class="col-md-6 mb-3">
+                                <label for="Nombre" class="form-label">
+                                    <i class="fas fa-id-card"></i> Nombre <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", @placeholder = "Ingrese el nombre", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                            </div>
+
+                            <!-- Apellido -->
+                            <div class="col-md-6 mb-3">
+                                <label for="Apellido" class="form-label">
+                                    <i class="fas fa-id-card"></i> Apellido <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control", @placeholder = "Ingrese el apellido", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Correo -->
+                            <div class="col-md-6 mb-3">
+                                <label for="Correo" class="form-label">
+                                    <i class="fas fa-envelope"></i> Correo Electrónico <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @type = "email", @placeholder = "ejemplo@correo.com", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-danger" })
+                            </div>
+
+                            <!-- Estado -->
+                            <div class="col-md-6 mb-3">
+                                <label for="Estado" class="form-label">
+                                    <i class="fas fa-toggle-on"></i> Estado <span class="text-danger">*</span>
+                                </label>
+                                @Html.DropDownListFor(m => m.Estado, new SelectList(new[] {
+                                    new { Value = "A", Text = "Activo" },
+                                    new { Value = "I", Text = "Inactivo" }
+                                }, "Value", "Text", "A"), new { @class = "form-select", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.Estado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Password -->
+                            <div class="col-12 mb-3">
+                                <label for="Password" class="form-label">
+                                    <i class="fas fa-lock"></i> Contraseña <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Ingrese la contraseña", @required = "required", @id = "password" })
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye" id="toggleIcon"></i>
+                                    </button>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <!-- Fecha de creación (hidden, se asigna en el servidor) -->
+                        @Html.HiddenFor(m => m.Fecha_creacion)
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Guardar Usuario
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const password = document.getElementById('password');
+            const icon = document.getElementById('toggleIcon');
+
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Bootstrap validation
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+}

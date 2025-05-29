@@ -1,0 +1,77 @@
+﻿@model ZentroApp.Models.LoginViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Iniciar Sesión";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Iniciar Sesión - ZentroApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #f2f2f2;
+        }
+
+        .login-container {
+            margin-top: 80px;
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container login-container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h4>Iniciar Sesión</h4>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger">
+                                    @Html.ValidationSummary()
+                                </div>
+                            }
+
+                            <div class="mb-3">
+                                @Html.LabelFor(model => model.Username, new { @class = "form-label" })
+                                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Ingrese su usuario" })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="mb-3">
+                                @Html.LabelFor(model => model.Password, new { @class = "form-label" })
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Ingrese su contraseña" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Ingresar</button>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-footer text-center text-muted">
+                        © @DateTime.Now.Year - ZentroApp
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

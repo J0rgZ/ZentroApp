@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZentroApp", "ZentroApp\ZentroApp.csproj", "{59A64EE2-C20D-48CE-B090-D9963542FB45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59A64EE2-C20D-48CE-B090-D9963542FB45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A64EE2-C20D-48CE-B090-D9963542FB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A64EE2-C20D-48CE-B090-D9963542FB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A64EE2-C20D-48CE-B090-D9963542FB45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CE299DC-3193-4F93-888F-5916622FCD05}
+	EndGlobalSection
+EndGlobal
